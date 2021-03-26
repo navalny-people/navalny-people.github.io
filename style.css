@@ -79,7 +79,7 @@ main {
 }
 
 header {
-    background: linear-gradient( rgba(0, 0, 0, 0.39), rgba(5, 0, 0, 0.329)), url('./img/1_1.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.39), rgba(5, 0, 0, 0.329)), url('./img/1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -115,6 +115,10 @@ span {
     font-size: 27px;
     transition: 1.1s;
     color: #ffffff;
+}
+
+#open {
+    z-index: 997;
 }
 
 .close_ {
@@ -241,6 +245,77 @@ article {
 }
 
 
+/****/
+
+
+/* Слайдер */
+
+.slider {
+    max-width: 77%;
+    position: relative;
+    margin: 20px auto;
+    height: 85vh;
+}
+
+
+/* Картинка масштабируется по отношению к родительскому элементу */
+
+.slider .item img {
+    object-fit: cover;
+    width: 100%;
+    height: 85vh;
+    border-radius: 27px;
+}
+
+
+/* Кнопки вперед и назад */
+
+.slider .previous,
+.slider .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.slider .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* При наведении на кнопки добавляем фон кнопок */
+
+.slider .previous:hover,
+.slider .next:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Анимация слайдов */
+
+.slider .item {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
 /*****************
 footer
 *****************/
@@ -265,7 +340,26 @@ footer {
     }
 }
 
+@media screen and (min-width: 980px) {
+    span {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 980px) {
+    * {
+        font-size: 16px;
+    }
+    .slider {
+        max-width: 93%;
+    }
+    .slider .previous,
+    .slider .next {
+        font-size: 27px;
+    }
+    .logo {
+        font-size: 27px;
+    }
     .text_header {
         width: 97%;
     }
@@ -322,19 +416,19 @@ footer {
     span {
         font-size: 40px;
     }
+    .menu_element a {
+        font-size: 27px;
+    }
 }
 
 @media screen and (max-width: 780px) {
     .block_href_header {
         width: 60%;
     }
-    * {
-        font-size: 16px;
-    }
     .text_header_p {
         width: 98%;
         margin: 0 auto;
-        font-size: 17px;
+        font-size: 1.05em;
     }
     .menu {
         width: 100%;
@@ -350,7 +444,6 @@ footer {
     }
     .logo {
         width: 100%;
-        font-size: 29px;
     }
     .block_href_header {
         position: relative;
@@ -359,9 +452,6 @@ footer {
     }
     section {
         width: 98%;
-    }
-    .menu_element a {
-        font-size: 27px;
     }
 }
 
@@ -381,7 +471,7 @@ good
 
 .nav_div {
     width: 100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.39), rgba(5, 0, 0, 0.329)), url('./img/1_1.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.39), rgba(5, 0, 0, 0.329)), url('./img/1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -390,50 +480,4 @@ good
 
 .margin {
     padding: 17px 0 17px 0;
-}
-
-.navalny_good {
-    display: flex;
-    padding: 30px;
-}
-
-.box_navalny_img {
-    max-width: 450px;
-    width: 50%;
-    max-height: 600px;
-}
-
-.box_info_good {
-    width: 50%;
-    padding: 7px;
-}
-
-#img_navalny {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 27px;
-}
-
-.nav_element a {
-    text-decoration: none;
-    color: #2e2e2e;
-}
-
-.nav_element a:hover {
-    color: #666666;
-}
-
-.nav_element {
-    transition: 0.4s;
-    display: inline-block;
-}
-
-.nav_element:hover {
-    transform: scale(1.1);
-}
-
-.nav_element::before {
-    content: '-';
-    color: #666666;
 }
